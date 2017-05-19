@@ -1,0 +1,32 @@
+<div id="container" ng-cloak>
+	<div class="menu_bg">
+	    <md-nav-bar  md-selected-nav-item="currentNavItem">
+	        <md-nav-item md-nav-click="goto('page1')" name="page1">Page One</md-nav-item>
+	        <md-nav-item md-nav-href="#page2" name="page3">Page Two</md-nav-item>
+	        <md-nav-item md-nav-sref="page3" name="page2">Page Three</md-nav-item>
+	        <md-nav-item md-nav-sref="app.page4" sref-opts="{reload: true, notify: true}" name="page4">Page Four</md-nav-item>
+	        <md-menu-bar>
+	            <md-menu md-position-mode="target target">
+	                <button ng-click="$mdMenu.open()">你好 {{ user.username }}&nbsp;( {{ user.created_at }} )</button>
+	                <md-menu-content>
+	                    <md-button ng-click="processLogout()" class="md-raised">退出登录</md-button></md-menu-content>
+	            </md-menu>
+	        </md-menu-bar>
+	    </md-nav-bar>
+    </div>
+    <md-content layout-padding style="background: #fff;">
+    	<md-datepicker ng-model="birthday"></md-datepicker>
+        <md-divider></md-divider>
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="(key, value) in github">
+                <div class="md-list-item-text">
+                    <h3>{{key}}</h3>
+                    <p>{{value}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+        <md-divider></md-divider>
+        <md-button ng-click="showAlert()" class="md-raised md-warn">Employee Alert!</md-button>
+        <md-divider></md-divider>
+        <md-button ng-click="showDialog($event)" class="md-raised">Custom Dialog</md-button></md-content>
+</div>
